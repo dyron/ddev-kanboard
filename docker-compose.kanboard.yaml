@@ -1,0 +1,19 @@
+#ddev-generated
+version: '3.6'
+services:
+  kanboard:
+    container_name: ddev-${DDEV_SITENAME}-kanboard
+    image: kanboard/kanboard:latest
+    restart: "no"
+    # These labels ensure this service is discoverable by ddev.
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: $DDEV_APPROOT
+
+    environment:
+      - HTTP_EXPOSE=8080:80
+      - HTTPS_EXPOSE=8081:80
+    expose:
+      - "80"
+    depends_on:
+      - db
