@@ -11,8 +11,8 @@ services:
       com.ddev.approot: $DDEV_APPROOT
 
     environment:
-      - HTTP_EXPOSE=8080:80
-      - HTTPS_EXPOSE=8081:80
+      - HTTP_EXPOSE=8052:80
+      - HTTPS_EXPOSE=8053:80
     expose:
       - "80"
     depends_on:
