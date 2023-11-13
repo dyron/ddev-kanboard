@@ -10,10 +10,15 @@ services:
       com.ddev.site-name: ${DDEV_SITENAME}
       com.ddev.approot: $DDEV_APPROOT
 
+    volumes:
+      - "./kanboard/plugins:/var/www/app/plugins"
+
     environment:
       - HTTP_EXPOSE=8052:80
       - HTTPS_EXPOSE=8053:80
+      - PLUGIN_INSTALLER=true
     expose:
-      - "80"
+      - "8052"
+      - "8053"
     depends_on:
       - db
